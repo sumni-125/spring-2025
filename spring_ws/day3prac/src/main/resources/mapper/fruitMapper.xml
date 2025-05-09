@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.acorn.FruitMapper" >
+
+	<select id="selectAll" resultType="Fruit">
+		select *
+		from fruits
+	</select>
+	
+	<select id="selectOne" parameterType="String" resultType="Fruit">
+		select *
+		from fruits
+		where fruit_name=#{fruit_name}
+	</select>
+	
+	<insert id="insert" parameterType="Fruit">
+		
+		insert into fruits(fruit_name, color)
+		values(#{fruit_name},#{color})
+		
+	</insert>
+	
+	<update id="update" parameterType="Fruit">
+		update fruits
+		set color = #{color}
+		where fruit_name=#{fruit_name}
+	</update>
+	
+	<delete id="delete" parameterType="String">
+		delete from fruits where fruit_name=#{fruit_name}
+	</delete>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+</mapper>
